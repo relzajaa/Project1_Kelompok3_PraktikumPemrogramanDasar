@@ -1,1 +1,1 @@
-# Project-1_Kelompok-3_Praktikum-Pemrograman-Dasar
+# Project 1_Kelompok 3_Praktikum Pemrograman Dasar
