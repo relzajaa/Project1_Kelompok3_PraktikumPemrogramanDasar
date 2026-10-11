@@ -2,11 +2,11 @@
 
 # 🔬 Sistem Peminjaman Peralatan Laboratorium
 
-**Aplikasi terminal berbasis Python OOP untuk mengelola mahasiswa, alat lab, dan transaksi peminjaman.**
+**Aplikasi terminal berbasis Python OOP untuk mencatat peminjaman alat laboratorium oleh mahasiswa.**
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white)
 ![OOP](https://img.shields.io/badge/Paradigma-OOP-green)
-![Dependensi](https://img.shields.io/badge/Dependensi-tanpa%20library%20eksternal-lightgrey)
+![Library](https://img.shields.io/badge/Library%20eksternal-tidak%20ada-lightgrey)
 ![Kelompok](https://img.shields.io/badge/Kelompok-3-orange)
 
 </div>
@@ -15,7 +15,7 @@
 
 ## 📌 Daftar Isi
 
-1. [Tentang Aplikasi](#-tentang-aplikasi)
+1. [Nama Aplikasi](#-nama-aplikasi)
 2. [Anggota Kelompok](#-anggota-kelompok)
 3. [Deskripsi Sistem](#-deskripsi-sistem)
 4. [Struktur Program](#-struktur-program)
@@ -24,14 +24,11 @@
 
 ---
 
-## 🧪 Tentang Aplikasi
+## 🧪 Nama Aplikasi
 
-| | |
-|---|---|
-| **Nama Aplikasi** | Sistem Peminjaman Peralatan Laboratorium |
-| **Bahasa** | Python 3 (hanya *standard library*, tanpa `pip install`) |
-| **Antarmuka** | Menu interaktif di terminal (berwarna, rata tengah, tabel & kotak) |
-| **Penyimpanan** | `dict` dan `list` di memori, **tanpa database** |
+**Sistem Peminjaman Peralatan Laboratorium**
+
+Aplikasi ini dibuat dengan Python dan dijalankan lewat terminal. Data disimpan sementara di memori (`dict` dan `list`), **tanpa database**.
 
 ---
 
@@ -39,78 +36,92 @@
 
 **Kelompok 3**
 
-| No |          Nama          |   NIM    |  Akun Github   |
-|:--:|------------------------|----------|----------------|
-| 1  | Farrel Muflif Muzzaki  | K3525024 | @relzajaa      |
-| 2  | Gisma Dian Utami       | K3525026 | @gismadian     |
-| 3  | Nourin Akbar Pratama   | K3525067 | @Akbarr-11     |
-| 4  | Azzahra Hendar Asafira | K3525081 | @azzahrahendar |
+| No | Nama | NIM | Akun GitHub |
+|:--:|------|-----|-------------|
+| 1 | Farrel Muflif Muzzaki | K3525024 | [@relzajaa](https://github.com/relzajaa) |
+| 2 | Gisma Dian Utami | K3525026 | [@gismadian](https://github.com/gismadian) |
+| 3 | Nourin Akbar Pratama | K3525067 | [@Akbarr-11](https://github.com/Akbarr-11) |
+| 4 | Azzahra Hendar Asafira | K3525081 | [@azzahrahendar](https://github.com/azzahrahendar) |
 
 ---
 
 ## 📖 Deskripsi Sistem
 
-Sistem ini membantu petugas laboratorium mencatat siapa meminjam alat apa, kapan harus kembali, dan dalam kondisi apa alat dikembalikan.
+Sistem ini membantu petugas lab mencatat **siapa** meminjam **alat apa**, **kapan** harus kembali, dan **bagaimana kondisi** alat saat dikembalikan.
 
 ### ✨ Fitur
 
 | Menu | Fitur | Keterangan |
 |:--:|-------|------------|
-| 1 | Kelola Mahasiswa | Tambah, edit, hapus, cari, dan lihat daftar mahasiswa |
-| 2 | Kelola Alat | Tambah (bisa banyak unit sekaligus), edit, hapus, cari, daftar, dan tambah kategori |
-| 3 | Buat Peminjaman | Satu transaksi boleh berisi beberapa alat, lama pinjam 1–7 hari |
-| 4 | Tampilkan Transaksi | Ringkasan semua transaksi + detail per ID, ada label **TERLAMBAT** |
-| 5 | Pengembalian Alat | Alat dikembalikan satu per satu dengan kondisi dan tanggal kembali |
-| 6 | Cari Transaksi | Transaksi berdasarkan NIM mahasiswa |
-| 7–9 | Laporan Alat | Alat tersedia (+ jumlah stok), sedang dipinjam, dan rusak |
-| 10 | Riwayat Mahasiswa | Transaksi selesai, yang terbaru di atas |
-| 11 | Keluar | Menutup program |
+| 1 | Kelola Data Mahasiswa | Tambah, edit, hapus, cari, dan lihat daftar mahasiswa |
+| 2 | Kelola Data Alat | Tambah (bisa banyak unit sekaligus), edit, hapus, cari, lihat daftar, dan tambah kategori |
+| 3 | Buat Transaksi Peminjaman | Satu transaksi boleh berisi beberapa alat, lama pinjam 1–7 hari |
+| 4 | Tampilkan Transaksi | Semua transaksi dan detailnya, ada tanda **TERLAMBAT** |
+| 5 | Proses Pengembalian Alat | Alat dikembalikan satu per satu, lengkap dengan kondisi dan tanggal |
+| 6 | Cari Transaksi Berdasarkan Mahasiswa | Cari memakai NIM |
+| 7 | Tampilkan Alat yang Tersedia | Daftar alat + jumlah stok |
+| 8 | Tampilkan Alat yang Sedang Dipinjam | Daftar alat yang belum kembali |
+| 9 | Tampilkan Alat yang Rusak | Daftar alat berkondisi rusak |
+| 10 | Tampilkan Riwayat Peminjaman Mahasiswa | Transaksi yang sudah selesai, terbaru di atas |
+| 11 | Keluar dari Program | Menutup aplikasi |
 | 12 | 🏆 Pencarian Alat | Cari berdasarkan kode, nama, atau kategori |
-| 13 | 🏆 Statistik | Alat terpopuler, mahasiswa teraktif, jumlah transaksi aktif dan selesai |
-| 14 | 🏆 Pemeliharaan | Alat rusak masuk perbaikan, lalu kembali tersedia dalam kondisi baik |
+| 13 | 🏆 Statistik Peminjaman | Alat terpopuler, mahasiswa teraktif, jumlah transaksi aktif dan selesai |
+| 14 | 🏆 Pemeliharaan Alat | Alat rusak diperbaiki lalu kembali tersedia dalam kondisi baik |
 
 > 🏆 = menu tantangan
 
-### 📏 Aturan Bisnis
+### 📏 Aturan Peminjaman
 
-1. Satu mahasiswa maksimal **2 transaksi aktif**.
-2. Alat hanya bisa dipinjam jika berstatus **Tersedia**.
-3. Satu transaksi bisa berisi **banyak alat**; kode ganda dihitung sekali.
-4. Pengembalian dicatat **per alat** (tanggal, kondisi, hari terlambat). Status transaksi otomatis berubah: *Dipinjam → Sebagian dikembalikan → Selesai*.
-5. Alat kembali **Baik** langsung tersedia; alat **rusak** menjadi *Tidak tersedia* sampai diperbaiki lewat menu Pemeliharaan.
-6. Mahasiswa dengan transaksi aktif dan alat yang sedang dipinjam **tidak bisa dihapus**.
+1. Satu mahasiswa maksimal punya **2 transaksi aktif**.
+2. Alat hanya bisa dipinjam jika statusnya **Tersedia**.
+3. Satu transaksi bisa berisi **banyak alat**. Kode alat yang diketik dua kali dihitung sekali.
+4. Pengembalian dicatat **per alat** (tanggal, kondisi, dan hari terlambat). Status transaksi berubah otomatis: *Dipinjam → Sebagian dikembalikan → Selesai*.
+5. Alat yang kembali **Baik** langsung tersedia. Alat **rusak** menjadi *Tidak tersedia* sampai diperbaiki lewat menu Pemeliharaan.
+6. Mahasiswa yang masih punya transaksi aktif dan alat yang sedang dipinjam **tidak bisa dihapus**.
 
-### 🛡️ Validasi Input
+### 🛡️ Pemeriksaan Input
 
-- NIM dan kode alat tidak boleh ganda.
-- No. HP hanya angka, 10–13 digit.
+- NIM dan kode alat tidak boleh sama dengan yang sudah ada.
+- No. HP hanya angka, panjang 10–13 digit.
 - Tanggal kembali berformat `DD-MM-YYYY` dan tidak boleh sebelum tanggal pinjam.
-- Semua kesalahan ditampilkan sebagai pesan `[!]` berwarna merah, program tidak berhenti.
+- Jika ada kesalahan, muncul pesan `[!]` berwarna merah dan program tidak berhenti.
 
-### 🖥️ Tampilan Menu
+### 🖥️ Tampilan Program
 
-```text
-╔══════════════════════════════════════════════════════════════════╗
-║          ♦  SISTEM PEMINJAMAN PERALATAN LABORATORIUM  ♦          ║
-╚══════════════════════════════════════════════════════════════════╝
+Ini tampilan menu utama saat program dijalankan (garis dan kotak berwarna kuning, tulisan berwarna putih):
 
-┌──────────────────────────────────────────────────────────────────┐
-│                            MENU UTAMA                            │
-╞══════════════════════════════════════════════════════════════════╡
-│  1. Kelola Data Mahasiswa                                        │
-│  2. Kelola Data Alat                                             │
-│  3. Buat Transaksi Peminjaman                                    │
-│  ...                                                             │
-│ 11. Keluar dari Program                                          │
-└──────────────────────────────────────────────────────────────────┘
-┌──────────────────────────────────────────────────────────────────┐
-│                          MENU TANTANGAN                          │
-╞══════════════════════════════════════════════════════════════════╡
-│ 12. Pencarian Alat                                               │
-│ 13. Statistik Peminjaman                                         │
-│ 14. Pemeliharaan Alat                                            │
-└──────────────────────────────────────────────────────────────────┘
-```
+<pre style="background:#0c0c0c; color:#ffffff; padding:12px; overflow-x:auto; line-height:1.3">
+      <span style="color:#F5F543">╔══════════════════════════════════════════════════════════════════╗</span>
+      <span style="color:#F5F543">║</span>          <span style="color:#F5F543"><b>♦</b></span><b>  SISTEM PEMINJAMAN PERALATAN LABORATORIUM  </b><span style="color:#F5F543"><b>♦</b></span>          <span style="color:#F5F543">║</span>
+      <span style="color:#F5F543">╚══════════════════════════════════════════════════════════════════╝</span>
+
+                 Hari ini: 12-10-2026   |   Transaksi aktif: 0                  
+
+      <span style="color:#F5F543">┌──────────────────────────────────────────────────────────────────┐</span>
+      <span style="color:#F5F543">│</span>                            <b>MENU UTAMA</b>                            <span style="color:#F5F543">│</span>
+      <span style="color:#F5F543">╞══════════════════════════════════════════════════════════════════╡</span>
+      <span style="color:#F5F543">│</span>  1. Kelola Data Mahasiswa                                        <span style="color:#F5F543">│</span>
+      <span style="color:#F5F543">│</span>  2. Kelola Data Alat                                             <span style="color:#F5F543">│</span>
+      <span style="color:#F5F543">│</span>  3. Buat Transaksi Peminjaman                                    <span style="color:#F5F543">│</span>
+      <span style="color:#F5F543">│</span>  4. Tampilkan Transaksi                                          <span style="color:#F5F543">│</span>
+      <span style="color:#F5F543">│</span>  5. Proses Pengembalian Alat                                     <span style="color:#F5F543">│</span>
+      <span style="color:#F5F543">│</span>  6. Cari Transaksi Berdasarkan Mahasiswa                         <span style="color:#F5F543">│</span>
+      <span style="color:#F5F543">│</span>  7. Tampilkan Alat yang Tersedia                                 <span style="color:#F5F543">│</span>
+      <span style="color:#F5F543">│</span>  8. Tampilkan Alat yang Sedang Dipinjam                          <span style="color:#F5F543">│</span>
+      <span style="color:#F5F543">│</span>  9. Tampilkan Alat yang Rusak                                    <span style="color:#F5F543">│</span>
+      <span style="color:#F5F543">│</span> 10. Tampilkan Riwayat Peminjaman Mahasiswa                       <span style="color:#F5F543">│</span>
+      <span style="color:#F5F543">│</span> 11. Keluar dari Program                                          <span style="color:#F5F543">│</span>
+      <span style="color:#F5F543">└──────────────────────────────────────────────────────────────────┘</span>
+
+      <span style="color:#F5F543">┌──────────────────────────────────────────────────────────────────┐</span>
+      <span style="color:#F5F543">│</span>                          <b>MENU TANTANGAN</b>                          <span style="color:#F5F543">│</span>
+      <span style="color:#F5F543">╞══════════════════════════════════════════════════════════════════╡</span>
+      <span style="color:#F5F543">│</span> 12. Pencarian Alat                                               <span style="color:#F5F543">│</span>
+      <span style="color:#F5F543">│</span> 13. Statistik Peminjaman                                         <span style="color:#F5F543">│</span>
+      <span style="color:#F5F543">│</span> 14. Pemeliharaan Alat                                            <span style="color:#F5F543">│</span>
+      <span style="color:#F5F543">└──────────────────────────────────────────────────────────────────┘</span>
+      Pilih menu (1-14): 
+</pre>
 
 ---
 
@@ -120,24 +131,22 @@ Sistem ini membantu petugas laboratorium mencatat siapa meminjam alat apa, kapan
 
 ```text
 Sistem Peminjaman Peralatan Laboratorium/
-├── main.py                      # titik masuk program
+├── main.py                    # pintu masuk program
 ├── README.md
-├── docs/
-│   └── uml-class-diagram.png    # UML Class Diagram
 └── sistem_peminjaman_lab/
     ├── __init__.py
-    ├── models.py                # Enum + class data (Domain)
-    ├── managers.py              # logika bisnis + penyimpanan dict (Manager)
-    ├── menu_app.py              # menu & alur interaksi (UI)
-    └── tampilan.py              # fungsi bantu cetak terminal
+    ├── models.py              # Enum dan class data (Domain)
+    ├── managers.py            # aturan dan penyimpanan data (Manager)
+    ├── menu_app.py            # menu dan alur input (UI)
+    └── tampilan.py            # fungsi bantu cetak di terminal
 ```
 
-### Arsitektur 3 Lapis
+### Tiga Lapisan Program
 
 ```mermaid
 flowchart TD
-    A["main.py"] --> B["MenuApp (UI)<br/>menu_app.py"]
-    B -. memakai .-> T["tampilan.py<br/>kotak, tabel, warna"]
+    A["main.py"] --> B["MenuApp (menu_app.py)"]
+    B -. memakai .-> T["tampilan.py"]
     B --> M1["MahasiswaManager"]
     B --> M2["AlatManager"]
     B --> M3["TransaksiManager"]
@@ -152,21 +161,21 @@ flowchart TD
 
 | Lapisan | File | Tugas |
 |---------|------|-------|
-| **UI** | `menu_app.py`, `tampilan.py` | Membaca input, menampilkan menu/tabel, menangkap `ValueError` |
-| **Manager** | `managers.py` | Menyimpan data (`dict`), memeriksa aturan bisnis |
-| **Domain** | `models.py` | Objek data dan perilakunya, serta 3 Enum |
+| **UI** | `menu_app.py`, `tampilan.py` | Menampilkan menu dan tabel, membaca input, menangkap pesan error |
+| **Manager** | `managers.py` | Menyimpan data di `dict` dan memeriksa aturan |
+| **Domain** | `models.py` | Objek data (mahasiswa, alat, transaksi) dan pilihan tetap (Enum) |
 
 ### Class dan Enum (8 class + 3 enum)
 
-| Jenis | Nama | Peran |
+| Jenis | Nama | Tugas |
 |-------|------|-------|
-| Class | `MenuApp` | Menjalankan menu 1–14 dan submenu |
-| Class | `MahasiswaManager` | CRUD dan pencarian mahasiswa (key = NIM) |
-| Class | `AlatManager` | CRUD, pencarian, kategori, dan pemeliharaan alat (key = kode) |
-| Class | `TransaksiManager` | Membuat transaksi, pengembalian, riwayat, statistik (key = ID `TRX001`, ...) |
-| Class | `Mahasiswa` | Data mahasiswa dan set `trxAktif` |
-| Class | `Alat` | Data alat, kondisi, status, dan transaksi yang sedang meminjam |
-| Class | `Transaksi` | Satu peminjaman: tanggal, batas kembali, status, daftar detail |
+| Class | `MenuApp` | Menjalankan menu 1–14 dan submenunya |
+| Class | `MahasiswaManager` | Mengelola data mahasiswa (kunci = NIM) |
+| Class | `AlatManager` | Mengelola data alat, kategori, dan pemeliharaan (kunci = kode alat) |
+| Class | `TransaksiManager` | Membuat transaksi, memproses pengembalian, riwayat, dan statistik (kunci = ID seperti `TRX001`) |
+| Class | `Mahasiswa` | Data mahasiswa dan daftar transaksi aktifnya |
+| Class | `Alat` | Data alat beserta kondisi dan statusnya |
+| Class | `Transaksi` | Satu peminjaman: tanggal, batas kembali, status, dan daftar alat |
 | Class | `DetailPeminjaman` | Catatan satu alat di dalam transaksi |
 | Enum | `StatusTransaksi` | `DIPINJAM`, `SEBAGIAN_DIKEMBALIKAN`, `SELESAI` |
 | Enum | `KondisiAlat` | `BAIK`, `RUSAK_RINGAN`, `RUSAK_BERAT` |
@@ -176,26 +185,20 @@ flowchart TD
 
 | Struktur | Dipakai untuk |
 |----------|---------------|
-| `dict` | Penyimpanan utama tiap manager, peta nomor menu, dan hasil `statistik()` |
-| `list` | Daftar detail transaksi dan hasil pencarian atau filter |
-| `set` | Kategori alat (tanpa duplikat) dan ID transaksi aktif mahasiswa |
+| `dict` | Tempat menyimpan data tiap manager dan daftar menu |
+| `list` | Daftar alat dalam transaksi dan hasil pencarian |
+| `set` | Kategori alat dan ID transaksi aktif mahasiswa (tidak boleh ganda) |
 | `tuple` | Pasangan `(nama, jumlah)` pada statistik |
-
-### UML Class Diagram
-
-<p align="center">
-  <img src="docs/uml-class-diagram.png" alt="UML Class Diagram Sistem Peminjaman Peralatan Laboratorium" width="100%">
-</p>
 
 ---
 
 ## 🚀 Cara Menjalankan
 
-### Persyaratan
+### Yang Dibutuhkan
 
-- **Python 3.8 atau lebih baru** (diuji pada Python 3.12)
-- Terminal yang mendukung warna ANSI dan karakter Unicode (Windows Terminal, PowerShell, CMD modern, macOS Terminal, Linux)
-- Tidak perlu instalasi library tambahan
+- **Python 3.8 atau lebih baru** (sudah dicoba di Python 3.12)
+- Terminal yang bisa menampilkan warna dan karakter Unicode (Windows Terminal, PowerShell, macOS Terminal, atau terminal Linux)
+- Tidak perlu `pip install` apa pun
 
 ### Langkah-langkah
 
@@ -203,33 +206,33 @@ flowchart TD
 # 1. Masuk ke folder proyek
 cd "Sistem Peminjaman Peralatan Laboratorium"
 
-# 2. Jalankan aplikasi
+# 2. Jalankan program
 python main.py          # Windows
 python3 main.py         # macOS / Linux
 ```
 
-### Alur Pemakaian Singkat
+### Contoh Alur Pemakaian
 
 Program **mulai tanpa data contoh**, jadi isi data dulu:
 
-1. **Menu 1** → tambah mahasiswa (NIM, nama, No. HP)
-2. **Menu 2** → tambah alat (mis. kode `MKS`, jumlah `3` → otomatis `MKS-01` sampai `MKS-03`)
-3. **Menu 3** → buat peminjaman (NIM, kode alat dipisah koma, lama pinjam)
-4. **Menu 5** → kembalikan alat (pilih transaksi, kode alat, kondisi, tanggal)
-5. **Menu 4 / 10 / 13** → lihat transaksi, riwayat, dan statistik
+1. **Menu 1** → tambah mahasiswa (NIM, nama, No. HP).
+2. **Menu 2** → tambah alat. Contoh: kode `MKS`, jumlah `3` → otomatis jadi `MKS-01`, `MKS-02`, `MKS-03`.
+3. **Menu 3** → buat peminjaman (NIM, kode alat dipisah koma, lama pinjam).
+4. **Menu 5** → kembalikan alat (pilih transaksi, kode alat, kondisi, tanggal).
+5. **Menu 4, 10, 13** → lihat transaksi, riwayat, dan statistik.
 
-> ⚠️ Data tersimpan di memori saja dan **hilang saat program ditutup**.
+> ⚠️ Data hanya tersimpan di memori, jadi **hilang saat program ditutup**.
 
 ---
 
 ## 🤝 Pembagian Kontribusi
 
-| Anggota | Peran | Kontribusi |
-|---------|-------|------------|
-| **Anggota 1** | Domain | `models.py`: Enum, `Mahasiswa`, `Alat`, `DetailPeminjaman`, `Transaksi` |
-| **Anggota 2** | Logika | `managers.py`: `MahasiswaManager`, `AlatManager`, `TransaksiManager`, aturan bisnis |
-| **Anggota 3** | Antarmuka | `menu_app.py`: `MenuApp`, submenu, alur input, menu tantangan A, B, C |
-| **Anggota 4** | Tampilan dan Dokumentasi | `tampilan.py`, UML Class Diagram, `README.md`, pengujian |
+| Anggota | File yang Dikerjakan | Isi Tugas |
+|---------|----------------------|-----------|
+| **Farrel Muflif Muzzaki** | `menu_app.py`, `main.py` | Menu utama dan submenu, alur input pengguna, menu tantangan, serta pintu masuk program |
+| **Gisma Dian Utami** | `models.py` | Enum dan class data: `Mahasiswa`, `Alat`, `DetailPeminjaman`, `Transaksi` |
+| **Nourin Akbar Pratama** | `tampilan.py` | Tampilan terminal: warna, kotak, tabel, dan pesan |
+| **Azzahra Hendar Asafira** | `managers.py` | `MahasiswaManager`, `AlatManager`, `TransaksiManager`, serta pemeriksaan aturan |
 
 ---
 
