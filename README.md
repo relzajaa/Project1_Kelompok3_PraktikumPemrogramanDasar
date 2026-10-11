@@ -6,7 +6,6 @@
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white)
 ![OOP](https://img.shields.io/badge/Paradigma-OOP-green)
-![Library](https://img.shields.io/badge/Library%20eksternal-tidak%20ada-lightgrey)
 ![Kelompok](https://img.shields.io/badge/Kelompok-3-orange)
 
 </div>
