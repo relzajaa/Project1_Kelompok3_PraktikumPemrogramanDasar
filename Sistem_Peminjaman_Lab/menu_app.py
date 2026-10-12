@@ -1,4 +1,3 @@
-# Tampilan menu program: membaca pilihan pengguna lalu meneruskannya ke manager.
 from datetime import date, datetime
 
 from . import tampilan as ui
@@ -10,14 +9,12 @@ JUMLAH_TOP = 5          # jumlah baris pada tabel statistik
 JUMLAH_MENU_UTAMA = 11  # menu 1-11 masuk menu utama, sisanya menu tantangan
 
 
-# ---------- fungsi membantu tampilan ----------
-
-# Ubah tanggal menjadi teks, contoh: 25-12-2026.
+# Ubah tanggal menjadi teks, contoh: 12-10-2026.
 def _fmt(tgl):
     return tgl.strftime(FORMAT_TANGGAL)
 
 
-# Status transaksi; ditambah "TERLAMBAT" bila masih aktif dan sudah lewat batas.
+# Status transaksi, ditambah kata "TERLAMBAT" bila transaksi masih aktif dan sudah melewati batas.
 def _labelStatus(trx):
     status = trx.status.value
     if trx.aktif() and trx.terlambat(date.today()):
@@ -25,7 +22,7 @@ def _labelStatus(trx):
     return status
 
 
-# Tampilkan tabel mahasiswa.
+# Menampilkan tabel mahasiswa
 def _tampilMahasiswa(daftar):
     baris = []
     for mhs in daftar:
@@ -34,7 +31,7 @@ def _tampilMahasiswa(daftar):
     ui.tabel(["NIM", "Nama", "No. HP", "Trx Aktif", "Status"], baris)
 
 
-# Tampilkan tabel alat.
+# Menampilkan tabel alat
 def _tampilAlat(daftar):
     baris = []
     for alat in daftar:
@@ -42,7 +39,7 @@ def _tampilAlat(daftar):
     ui.tabel(["Kode", "Nama", "Kategori", "Kondisi", "Status", "Trx Aktif"], baris)
 
 
-# Tampilkan tabel ringkasan transaksi.
+# Menampilkan tabel ringkasan transaksi
 def _tampilTransaksi(daftar):
     baris = []
     for trx in daftar:
@@ -51,7 +48,7 @@ def _tampilTransaksi(daftar):
     ui.tabel(["ID", "Mahasiswa", "Tgl Pinjam", "Batas", "Alat", "Status"], baris)
 
 
-# Tampilkan detail satu transaksi beserta alat-alatnya.
+# Menampilkan detail satu transaksi beserta alat-alatnya.
 def _tampilDetail(trx):
     ui.kotak(f"TRANSAKSI {trx.id}", [
         f"Mahasiswa      : {trx.mahasiswa.nama} ({trx.mahasiswa.nim})",
@@ -64,7 +61,7 @@ def _tampilDetail(trx):
         if detail.isKembali():
             baris.append([detail.alat.kode, detail.alat.nama, _fmt(detail.tglKembali), detail.kondisiKembali.value, f"{detail.hariTerlambat} hari"])
         else:
-            baris.append([detail.alat.kode, detail.alat.nama, "Belum", "-", "-"])
+            baris.append([detail.alat.kode, detail.alat.nama, "Belum Kembali", "-", "-"])
     ui.tabel(["Kode", "Alat", "Kembali", "Kondisi", "Terlambat"], baris)
 
 
@@ -76,7 +73,7 @@ def _pilihTransaksi(daftar, idTrx):
     raise ValueError("ID transaksi tidak ada dalam daftar di atas.")
 
 
-# Tampilkan daftar transaksi, lalu tawarkan melihat detail salah satunya.
+# Menampilkan daftar transaksi, lalu menawarkan melihat detail salah satunya.
 def _tampilTransaksiDanDetail(daftar):
     _tampilTransaksi(daftar)
     if daftar:
@@ -103,7 +100,7 @@ def _inputTanggal():
     try:
         return datetime.strptime(teks, FORMAT_TANGGAL).date()
     except ValueError:
-        raise ValueError("Format tanggal harus DD-MM-YYYY, contoh 25-12-2026.")
+        raise ValueError("Format tanggal harus DD-MM-YYYY, Contoh : 12-10-2026.")
 
 
 # Tanya ya/tidak; hasilnya True jika pengguna mengetik y.
@@ -120,7 +117,6 @@ def _tampilPeringkat(judul, kolom, daftar):
     ui.tabel(["No"] + kolom, baris)
 
 
-# ---------- kelas utama ----------
 
 # Kelas utama program: menampilkan menu dan menjalankan pilihan pengguna.
 class MenuApp:
@@ -181,7 +177,7 @@ class MenuApp:
         self._berjalan = False
         ui.bersihkan()
         print("\n")
-        ui.pesan("Terima kasih telah menggunakan sistem peminjaman lab. Sampai jumpa!", "sukses")
+        ui.pesan("Terima kasih telah menggunakan sistem peminjaman peralatan lab. Sampai jumpa!", "Sukses")
 
     # Tampilkan judul halaman, jalankan aksi, tampilkan pesan jika terjadi kesalahan, lalu beri jeda.
     def _eksekusi(self, judul, aksi):
@@ -209,7 +205,6 @@ class MenuApp:
                 ui.pesan("Pilihan tidak valid.", "error")
                 ui.tekanEnter()
 
-    # ---------- menu 1: mahasiswa ----------
 
     # Submenu kelola data mahasiswa.
     def _menuMahasiswa(self):
@@ -260,7 +255,6 @@ class MenuApp:
     def _daftarMahasiswa(self):
         _tampilMahasiswa(self.mgrMahasiswa.semua())
 
-    # ---------- menu 2: alat ----------
 
     # Submenu kelola data alat.
     def _menuAlat(self):
@@ -329,7 +323,6 @@ class MenuApp:
         self.mgrAlat.tambahKategori(ui.tanya("Nama kategori baru"))
         ui.pesan("Kategori sekarang: " + ", ".join(sorted(self.mgrAlat.kategori)), "sukses")
 
-    # ---------- menu 3: buat transaksi peminjaman ----------
 
     # Buat transaksi: pilih mahasiswa, alat (boleh lebih dari satu), dan lama pinjam.
     def _pinjamAlat(self):
@@ -353,7 +346,6 @@ class MenuApp:
         ui.pesan("Peminjaman berhasil dicatat.", "sukses")
         _tampilDetail(trx)
 
-    # ---------- menu 4 dan 6: tampilkan / cari transaksi ----------
 
     # Tampilkan semua transaksi.
     def _daftarTransaksi(self):
@@ -363,7 +355,6 @@ class MenuApp:
     def _cariTransaksiMahasiswa(self):
         _tampilTransaksiDanDetail(self.mgrTransaksi.cariByMahasiswa(ui.tanya("NIM mahasiswa")))
 
-    # ---------- menu 5: proses pengembalian ----------
 
     # Kembalikan satu alat: pilih mahasiswa, transaksi, alat, kondisi, dan tanggal.
     def _kembalikanAlat(self):
@@ -388,7 +379,6 @@ class MenuApp:
                 ui.pesan(f"Terlambat {detail.hariTerlambat} hari dari batas pengembalian.")
         _tampilDetail(trx)
 
-    # ---------- menu 7-9: tampilkan alat ----------
 
     # Tampilkan alat yang tersedia beserta jumlah stoknya.
     def _alatTersedia(self):
@@ -403,7 +393,6 @@ class MenuApp:
     def _alatRusak(self):
         _tampilAlat(self.mgrAlat.alatRusak())
 
-    # ---------- menu 10: riwayat ----------
 
     # Tampilkan transaksi mahasiswa yang sudah selesai.
     def _riwayatMahasiswa(self):
@@ -413,9 +402,8 @@ class MenuApp:
         for trx in daftar:
             _tampilDetail(trx)
 
-    # ---------- menu 12: pencarian alat (tantangan A) ----------
 
-    # Cari alat berdasarkan kode, nama, atau kategori.
+    # Cari alat berdasarkan kode, nama, atau kategori (Tantangan A).
     def _cariAlat(self):
         pilihan = ui.tanya("Cari berdasarkan (1 = Kode, 2 = Nama, 3 = Kategori)")
         kriteria = {"1": "kode", "2": "nama", "3": "kategori"}.get(pilihan)
@@ -423,9 +411,8 @@ class MenuApp:
             raise ValueError("Pilihan tidak valid.")
         _tampilAlat(self.mgrAlat.cari(kriteria, ui.tanya("Kata kunci")))
 
-    # ---------- menu 13: statistik (tantangan B) ----------
 
-    # Tampilkan ringkasan transaksi, alat terpopuler, dan mahasiswa teraktif.
+    # Tampilkan ringkasan transaksi, alat terpopuler, dan mahasiswa teraktif (Tantangan B).
     def _statistik(self):
         stat = self.mgrTransaksi.statistik()
         ui.kotak("RINGKASAN TRANSAKSI", [
@@ -435,9 +422,8 @@ class MenuApp:
         _tampilPeringkat("Alat Terpopuler", ["Alat", "Dipinjam"], stat["alatTerpopuler"])
         _tampilPeringkat("Mahasiswa Teraktif", ["Mahasiswa", "Transaksi"], stat["mahasiswaTerAktif"])
 
-    # ---------- menu 14: pemeliharaan (tantangan C) ----------
 
-    # Submenu pemeliharaan alat.
+    # Submenu pemeliharaan alat (Tantangan C).
     def _menuPemeliharaan(self):
         self._submenu("PEMELIHARAAN ALAT", [
             ("Masukkan alat ke pemeliharaan", self._masukPemeliharaan),

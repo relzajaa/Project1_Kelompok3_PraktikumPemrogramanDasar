@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🔬 Sistem Peminjaman Peralatan Laboratorium
+# Sistem Peminjaman Peralatan Laboratorium
 
 **Aplikasi terminal berbasis Python OOP untuk mencatat peminjaman alat laboratorium oleh mahasiswa.**
 
@@ -10,9 +10,7 @@
 
 </div>
 
----
-
-## 📌 Daftar Isi
+## Daftar Isi
 
 1. [Nama Aplikasi](#-nama-aplikasi)
 2. [Anggota Kelompok](#-anggota-kelompok)
@@ -21,17 +19,15 @@
 5. [Cara Menjalankan](#-cara-menjalankan)
 6. [Pembagian Kontribusi](#-pembagian-kontribusi)
 
----
 
-## 🧪 Nama Aplikasi
+## Nama Aplikasi
 
 **Sistem Peminjaman Peralatan Laboratorium**
 
 Aplikasi ini dibuat dengan Python dan dijalankan lewat terminal. Data disimpan sementara di memori (`dict` dan `list`), **tanpa database**.
 
----
 
-## 👥 Anggota Kelompok
+## Anggota Kelompok
 
 **Kelompok 3**
 
@@ -42,13 +38,12 @@ Aplikasi ini dibuat dengan Python dan dijalankan lewat terminal. Data disimpan s
 | 3 | Nourin Akbar Pratama | K3525067 | [@Akbarr-11](https://github.com/Akbarr-11) |
 | 4 | Azzahra Hendar Asafira | K3525081 | [@azzahrahendar](https://github.com/azzahrahendar) |
 
----
 
-## 📖 Deskripsi Sistem
+## Deskripsi Sistem
 
 Sistem ini membantu petugas lab mencatat **siapa** meminjam **alat apa**, **kapan** harus kembali, dan **bagaimana kondisi** alat saat dikembalikan.
 
-### ✨ Fitur
+### Fitur ✨
 
 | Menu | Fitur | Keterangan |
 |:--:|-------|------------|
@@ -63,13 +58,12 @@ Sistem ini membantu petugas lab mencatat **siapa** meminjam **alat apa**, **kapa
 | 9 | Tampilkan Alat yang Rusak | Daftar alat berkondisi rusak |
 | 10 | Tampilkan Riwayat Peminjaman Mahasiswa | Transaksi yang sudah selesai, terbaru di atas |
 | 11 | Keluar dari Program | Menutup aplikasi |
-| 12 | 🏆 Pencarian Alat | Cari berdasarkan kode, nama, atau kategori |
-| 13 | 🏆 Statistik Peminjaman | Alat terpopuler, mahasiswa teraktif, jumlah transaksi aktif dan selesai |
-| 14 | 🏆 Pemeliharaan Alat | Alat rusak diperbaiki lalu kembali tersedia dalam kondisi baik |
+| 12 | Pencarian Alat | Cari berdasarkan kode, nama, atau kategori |
+| 13 | Statistik Peminjaman | Alat terpopuler, mahasiswa teraktif, jumlah transaksi aktif dan selesai |
+| 14 | Pemeliharaan Alat | Alat rusak diperbaiki lalu kembali tersedia dalam kondisi baik |
 
-> 🏆 = menu tantangan
 
-### 📏 Aturan Peminjaman
+### Aturan Peminjaman
 
 1. Satu mahasiswa maksimal punya **2 transaksi aktif**.
 2. Alat hanya bisa dipinjam jika statusnya **Tersedia**.
@@ -78,14 +72,14 @@ Sistem ini membantu petugas lab mencatat **siapa** meminjam **alat apa**, **kapa
 5. Alat yang kembali **Baik** langsung tersedia. Alat **rusak** menjadi *Tidak tersedia* sampai diperbaiki lewat menu Pemeliharaan.
 6. Mahasiswa yang masih punya transaksi aktif dan alat yang sedang dipinjam **tidak bisa dihapus**.
 
-### 🛡️ Pemeriksaan Input
+### Pemeriksaan Input
 
 - NIM dan kode alat tidak boleh sama dengan yang sudah ada.
 - No. HP hanya angka, panjang 10–13 digit.
 - Tanggal kembali berformat `DD-MM-YYYY` dan tidak boleh sebelum tanggal pinjam.
 - Jika ada kesalahan, muncul pesan `[!]` berwarna merah dan program tidak berhenti.
 
-### 🖥️ Tampilan Program
+### Tampilan Program
 
 Ini tampilan menu utama saat program dijalankan (garis dan kotak berwarna kuning, tulisan berwarna putih):
 
@@ -122,9 +116,8 @@ Ini tampilan menu utama saat program dijalankan (garis dan kotak berwarna kuning
       Pilih menu (1-14): 
 </pre>
 
----
 
-## 🗂️ Struktur Program
+## Struktur Program
 
 ### Susunan Folder
 
@@ -189,15 +182,15 @@ flowchart TD
 | `set` | Kategori alat dan ID transaksi aktif mahasiswa (tidak boleh ganda) |
 | `tuple` | Pasangan `(nama, jumlah)` pada statistik |
 
----
 
-## 🚀 Cara Menjalankan
+## Cara Menjalankan
 
 ### Yang Dibutuhkan
 
 - **Python 3.8 atau lebih baru** (sudah dicoba di Python 3.12)
 - Terminal yang bisa menampilkan warna dan karakter Unicode (Windows Terminal, PowerShell, macOS Terminal, atau terminal Linux)
 - Tidak perlu `pip install` apa pun
+- Masuk ke file main.py, lalu klik tombol play di pojok kanan untuk Run 
 
 ### Langkah-langkah
 
@@ -222,21 +215,18 @@ Program **mulai tanpa data contoh**, jadi isi data dulu:
 
 > ⚠️ Data hanya tersimpan di memori, jadi **hilang saat program ditutup**.
 
----
 
-## 🤝 Pembagian Kontribusi
+## Pembagian Kontribusi
 
 | Anggota | File yang Dikerjakan | Isi Tugas |
 |---------|----------------------|-----------|
 | **Farrel Muflif Muzzaki** | `menu_app.py`, `main.py` | Menu utama dan submenu, alur input pengguna, menu tantangan, serta pintu masuk program |
 | **Gisma Dian Utami** | `models.py` | Enum dan class data: `Mahasiswa`, `Alat`, `DetailPeminjaman`, `Transaksi` |
-| **Nourin Akbar Pratama** | `tampilan.py` | Tampilan terminal: warna, kotak, tabel, dan pesan |
+| **Nourin Akbar Pratama** | `tampilan.py`, `README.md` | Tampilan terminal, Penjelasan Repository |
 | **Azzahra Hendar Asafira** | `managers.py` | `MahasiswaManager`, `AlatManager`, `TransaksiManager`, serta pemeriksaan aturan |
-
----
 
 <div align="center">
 
-**Kelompok 3** · Dibuat dengan 🐍 Python
+**Created by Kelompok 3**
 
 </div>
