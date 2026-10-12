@@ -1,4 +1,4 @@
-# Fungsi bantu untuk mencetak tampilan di terminal: teks rata tengah, warna, kotak, dan tabel.
+# Fungsi bantu mencetak tampilan di terminal: teks rata tengah, warna, kotak, dan tabel.
 import os
 import re
 import shutil
